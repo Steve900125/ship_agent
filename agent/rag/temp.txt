@@ -1,0 +1,15 @@
+loader = UnstructuredLoader(file_path=pdf_files)
+    docs = loader.load()
+
+
+    # 打印結果
+    for doc in docs:
+        # print(f"Page Content: {title_doc.page_content}")
+        if doc.page_content == '機電技師訪談摘要':
+            a_doc = doc
+        elif doc.page_content == '關作業後自基隆港啟航，目的地為福澳港。':
+            b_doc = doc
+    
+    print(a_doc)
+    print("===")
+    print(b_doc)
