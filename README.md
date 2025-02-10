@@ -1,5 +1,3 @@
-# ship_agent
-
-pip install -r requirements.txt
-
-python sqlite\create_db.py
+```
+ngrok http --domain=big-rattler-certainly.ngrok-free.app 5000
+```

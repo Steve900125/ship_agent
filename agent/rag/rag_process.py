@@ -30,7 +30,7 @@ def init_rag_process(doc_path: Path, files_record_path: Path, db_path: Path) -> 
     changes, _, _ = check_folder_changes(doc_path, files_record_path)
 
     # Initialize the embedding model
-    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
+    embeddings = HuggingFaceEmbeddings(model_name="ibm-granite/granite-embedding-278m-multilingual")
 
     if changes or FROCE_UPDATE:
         # Changes detected, rebuild the database

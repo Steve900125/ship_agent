@@ -17,7 +17,7 @@ def get_system_rag_answer(question: str) -> List[Document] | str:
     The documents primarily consist of major maritime transport accident investigation reports. 
     Use these reports to retrieve relevant information regarding accident causes, solutions, and recommendations. 
     Provide clear, concise, and actionable responses based on the retrieved content.
-
+    事故船艦包含:[天王星客船、臺馬之星] 請簡潔精確回答問題，步要過多描述安照原始描述。
     Note{
         Answer the users QUESTION using the DOCUMENT text above.
         Keep your answer ground in the facts of the DOCUMENT.
@@ -32,6 +32,7 @@ def get_system_rag_answer(question: str) -> List[Document] | str:
 
     Returns:
         A list of documents relevant to the query from internal company files or str
+        重要 : 若遇到文件查詢時附上原始文件描述內容不做修正
     """
     print('[Info] call get_system_rag_answer')
     print('[Question]: ', question)
@@ -56,3 +57,8 @@ def get_system_rag_answer(question: str) -> List[Document] | str:
         docs = vectorstore.similarity_search(question)
 
         return docs
+
+if __name__ == "__main__":
+    question = "臺馬之星在失去動力的過程中，主要是由於什麼原因？"
+    ans =  get_system_rag_answer(question)
+    print(ans)

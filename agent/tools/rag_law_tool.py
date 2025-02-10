@@ -37,6 +37,8 @@ def get_law_rag_answer(question: str) -> List[Document] | str:
 
     Returns:
         A list of documents relevant to the query from internal company files or str
+        重要 : 若遇到文件查詢時附上原始文件描述內容不做修正
+        範例 : @參考文件內容: .....
     """
     print('[Info] call get_law_rag_answer')
     print('[Question]: ', question)
@@ -61,3 +63,8 @@ def get_law_rag_answer(question: str) -> List[Document] | str:
         docs = vectorstore.similarity_search(question)
 
         return docs
+
+if __name__ == "__main__":
+    question = "船舶安全管理證書要求"
+    ans = get_law_rag_answer(question)
+    print(ans)
